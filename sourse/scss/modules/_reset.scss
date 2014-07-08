@@ -29,6 +29,7 @@ body {
     font-family: $base__font;
     background:$base__background;
     padding-top: em(152); // header height
+    min-width: 1012px;
 }
 blockquote, q {
     quotes: none;

@@ -17,6 +17,7 @@
         overflow: hidden;
         font-weight: bold;
         padding: em(10, $font-size) 0;
+        cursor: pointer;
         &:after{
             content:"";
             display: block;
@@ -90,5 +91,8 @@
         .year{
             color: #8a8a8a;
         }
+    }
+    &__spoiler{
+        display: none;
     }
 }
