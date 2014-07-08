@@ -1,0 +1,122 @@
+.b-header{
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index:50;
+    background:#fff;
+    transition: margin .3s ease;
+    box-shadow: 0 0 8px rgba(0,0,0,.75);
+    &__container{
+        padding-left: em(128);
+        position: relative;
+    }
+    &__logo{
+        position: absolute;
+        top:30px;
+        left: 0;
+        display: block;
+        width:101px;
+        height:78px;
+        transition: .3s ease;
+        img{
+            display: block;
+            width: 100%;
+        }
+    }
+    &.fixed &__logo{
+        width: 80px;
+        top:70px;
+    }
+    &__top{
+        border-bottom:2px solid #f5f5f5;
+        padding: em(14) 0 em(18);
+    }
+    &__tel{
+        display: inline-block;
+        vertical-align: middle;
+        padding: 0 12px 0 16px;
+    }
+    .pr{
+        &-smvk, &-smfb, &-smtw{
+            margin: 0 em(2);
+        }
+        &-button{
+            padding-left: 15px;
+            padding-right: 15px;
+            margin-right: 12px;
+        }
+    }
+    &__forclient{
+        display: inline-block;
+        text-transform: uppercase;
+        color: #8a8a8a;
+        padding:em(8) 0 em(5) em(28);
+        text-decoration: none;
+        position: relative;
+        .text{
+            display: inline-block;
+            border-bottom: 1px solid #e095f5;
+        }
+        :before{
+            content:"";
+            display: block;
+            width:16px;
+            height: 16px;
+            background: url(../images/sprite.png) -211px 0;
+            position: absolute;
+            top:50%;
+            margin-top: -8px;
+            left: 0;
+        }
+    }
+    &__bottom{
+        padding-top: em(24);
+        padding-bottom: em(20);
+    }
+    &__nav-item{
+        display: inline-block;
+        padding-right:em(37);
+        &:last-child{
+            padding-right: 0;
+        }
+    }
+    &__nav-link{
+        $font-size: 17;
+        font-size: em($font-size);
+        color: #323232;
+        text-decoration: none;
+        display: block;
+        padding: em(10, $font-size) 0;
+        &:hover{
+            color: #059bf5;
+        }
+    }
+    &__contacts{
+        &:after{
+            content:'';
+            display: inline-block;
+            width: 20px;
+            height: 16px;
+            background:url(../images/sprite.png) no-repeat -227px 0 ;
+            vertical-align: middle;
+            margin: -3px 0 0 5px;
+        }
+    }
+    &.fixed{
+        margin-top: - em(65);
+    }
+    &__nav-count{
+        font-size: em(11, 17);
+        color: #7d7d7d;
+    }
+    &__nav-blog &__nav-link:before{
+        content:"";
+        display: inline-block;
+        width:19px;
+        height:19px;
+        background:url(../images/sprite.png) no-repeat -247px 0;
+        vertical-align: middle;
+        margin-right: 10px;
+    }
+}

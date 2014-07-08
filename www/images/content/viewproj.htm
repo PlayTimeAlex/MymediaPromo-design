@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="windows-1251" /><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={xpid:"UQUHVVNRGwEEU1NbDwE="};window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var o=t[n][1][e];return r(o?o:e)},o,o.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(t,e){function n(t,e,n){n||(n={});for(var r=o[t],a=r&&r.length||0,s=n[i]||(n[i]={}),u=0;a>u;u++)r[u].apply(s,e);return s}function r(t,e){var n=o[t]||(o[t]=[]);n.push(e)}var o={},i="nr@context";e.exports={on:r,emit:n}},{}],2:[function(t){function e(t,e,n,i,s){return u?u-=1:r("err",[s||new UncaughtException(t,e,n)]),"function"==typeof a?a.apply(this,o(arguments)):!1}function UncaughtException(t,e,n){this.message=t||"Uncaught error with no additional information",this.sourceURL=e,this.line=n}function n(t){r("err",[t,(new Date).getTime()])}var r=t("handle"),o=t(6),i=t(5),a=window.onerror,s=!1,u=0;t("loader").features.push("err"),window.onerror=e,NREUM.noticeError=n;try{throw new Error}catch(d){"stack"in d&&(t(1),t(2),"addEventListener"in window&&t(3),window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&t(4),s=!0)}i.on("fn-start",function(){s&&(u+=1)}),i.on("fn-err",function(t,e,r){s&&(this.thrown=!0,n(r))}),i.on("fn-end",function(){s&&!this.thrown&&u>0&&(u-=1)}),i.on("internal-error",function(t){r("ierr",[t,(new Date).getTime(),!0])})},{1:5,2:4,3:3,4:6,5:1,6:14,handle:"D5DuLP",loader:"G9z0Bl"}],3:[function(t){function e(t){r.inPlace(t,["addEventListener","removeEventListener"],"-",n)}function n(t){return t[1]}var r=t(1),o=(t(3),t(2));if(e(window),"getPrototypeOf"in Object){for(var i=document;i&&!i.hasOwnProperty("addEventListener");)i=Object.getPrototypeOf(i);i&&e(i);for(var a=XMLHttpRequest.prototype;a&&!a.hasOwnProperty("addEventListener");)a=Object.getPrototypeOf(a);a&&e(a)}else XMLHttpRequest.prototype.hasOwnProperty("addEventListener")&&e(XMLHttpRequest.prototype);o.on("addEventListener-start",function(t){if(t[1]){var e=t[1];"function"==typeof e?this.wrapped=e["nr@wrapped"]?t[1]=e["nr@wrapped"]:e["nr@wrapped"]=t[1]=r(e,"fn-"):"function"==typeof e.handleEvent&&r.inPlace(e,["handleEvent"],"fn-")}}),o.on("removeEventListener-start",function(t){var e=this.wrapped;e&&(t[1]=e)})},{1:15,2:1,3:14}],4:[function(t){var e=(t(3),t(1)),n=t(2);e.inPlace(window,["requestAnimationFrame","mozRequestAnimationFrame","webkitRequestAnimationFrame","msRequestAnimationFrame"],"raf-"),n.on("raf-start",function(t){t[0]=e(t[0],"fn-")})},{1:15,2:1,3:14}],5:[function(t){function e(t){var e=t[0];"string"==typeof e&&(e=new Function(e)),t[0]=n(e,"fn-")}var n=(t(3),t(1)),r=t(2);n.inPlace(window,["setTimeout","setInterval","setImmediate"],"setTimer-"),r.on("setTimer-start",e)},{1:15,2:1,3:14}],6:[function(t){function e(){o.inPlace(this,s,"fn-")}function n(t,e){o.inPlace(e,["onreadystatechange"],"fn-")}function r(t,e){return e}var o=t(1),i=t(2),a=window.XMLHttpRequest,s=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"];window.XMLHttpRequest=function(t){var n=new a(t);try{i.emit("new-xhr",[],n),o.inPlace(n,["addEventListener","removeEventListener"],"-",function(t,e){return e}),n.addEventListener("readystatechange",e,!1)}catch(r){try{i.emit("internal-error",r)}catch(s){}}return n},window.XMLHttpRequest.prototype=a.prototype,o.inPlace(XMLHttpRequest.prototype,["open","send"],"-xhr-",r),i.on("send-xhr-start",n),i.on("open-xhr-start",n)},{1:15,2:1}],7:[function(t){function e(){function e(t){if("string"==typeof t&&t.length)return t.length;if("object"!=typeof t)return void 0;if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if("undefined"!=typeof FormData&&t instanceof FormData)return void 0;try{return JSON.stringify(t).length}catch(e){return void 0}}function n(t){var n=this.params,r=this.metrics;if(!this.ended){this.ended=!0;for(var i=0;u>i;i++)t.removeEventListener(s[i],this.listener,!1);if(!n.aborted){if(r.duration=(new Date).getTime()-this.startTime,4===t.readyState){n.status=t.status;var a=t.responseType,d="arraybuffer"===a||"blob"===a||"json"===a?t.response:t.responseText,f=e(d);if(f&&(r.rxSize=f),this.sameOrigin){var c=t.getResponseHeader("X-NewRelic-App-Data");c&&(n.cat=c.split(", ").pop())}}else n.status=0;r.cbTime=this.cbTime,o("xhr",[n,r])}}}function r(t,e){var n=i(e),r=t.params;r.host=n.hostname+":"+n.port,r.pathname=n.pathname,t.sameOrigin=n.sameOrigin}t("loader").features.push("xhr");var o=t("handle"),i=t(1),a=t(5),s=["load","error","abort","timeout"],u=s.length,d=t(2);t(3),t(4),a.on("new-xhr",function(){this.totalCbs=0,this.called=0,this.cbTime=0,this.end=n,this.ended=!1,this.xhrGuids={}}),a.on("open-xhr-start",function(t){this.params={method:t[0]},r(this,t[1]),this.metrics={}}),a.on("open-xhr-end",function(t,e){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&e.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),a.on("send-xhr-start",function(t,n){var r=this.metrics,o=t[0],i=this;if(r&&o){var d=e(o);d&&(r.txSize=d)}this.startTime=(new Date).getTime(),this.listener=function(t){try{"abort"===t.type&&(i.params.aborted=!0),("load"!==t.type||i.called===i.totalCbs&&(i.onloadCalled||"function"!=typeof n.onload))&&i.end(n)}catch(e){try{a.emit("internal-error",e)}catch(r){}}};for(var f=0;u>f;f++)n.addEventListener(s[f],this.listener,!1)}),a.on("xhr-cb-time",function(t,e,n){this.cbTime+=t,e?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof n.onload||this.end(n)}),a.on("xhr-load-added",function(t,e){var n=""+d(t)+!!e;this.xhrGuids&&!this.xhrGuids[n]&&(this.xhrGuids[n]=!0,this.totalCbs+=1)}),a.on("xhr-load-removed",function(t,e){var n=""+d(t)+!!e;this.xhrGuids&&this.xhrGuids[n]&&(delete this.xhrGuids[n],this.totalCbs-=1)}),a.on("addEventListener-end",function(t,e){e instanceof XMLHttpRequest&&"load"===t[0]&&a.emit("xhr-load-added",[t[1],t[2]],e)}),a.on("removeEventListener-end",function(t,e){e instanceof XMLHttpRequest&&"load"===t[0]&&a.emit("xhr-load-removed",[t[1],t[2]],e)}),a.on("fn-start",function(t,e,n){e instanceof XMLHttpRequest&&("onload"===n&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=(new Date).getTime()))}),a.on("fn-end",function(t,e){this.xhrCbStart&&a.emit("xhr-cb-time",[(new Date).getTime()-this.xhrCbStart,this.onload,e],e)})}window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&!/CriOS/.test(navigator.userAgent)&&e()},{1:8,2:11,3:3,4:6,5:1,handle:"D5DuLP",loader:"G9z0Bl"}],8:[function(t,e){e.exports=function(t){var e=document.createElement("a"),n=window.location,r={};e.href=t,r.port=e.port;var o=e.href.split("://");return!r.port&&o[1]&&(r.port=o[1].split("/")[0].split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=e.hostname||n.hostname,r.pathname=e.pathname,"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname),r.sameOrigin=!e.hostname||e.hostname===document.domain&&e.port===n.port&&e.protocol===n.protocol,r}},{}],handle:[function(t,e){e.exports=t("D5DuLP")},{}],D5DuLP:[function(t,e){function n(t,e){var n=r[t];return n?n.apply(this,e):(o[t]||(o[t]=[]),void o[t].push(e))}var r={},o={};e.exports=n,n.queues=o,n.handlers=r},{}],11:[function(t,e){function n(t){if(!t||"object"!=typeof t&&"function"!=typeof t)return-1;if(t===window)return 0;if(o.call(t,"__nr"))return t.__nr;try{return Object.defineProperty(t,"__nr",{value:r,writable:!0,enumerable:!1}),r}catch(e){return t.__nr=r,r}finally{r+=1}}var r=1,o=Object.prototype.hasOwnProperty;e.exports=n},{}],loader:[function(t,e){e.exports=t("G9z0Bl")},{}],G9z0Bl:[function(t,e){function n(){var t=p.info=NREUM.info;if(t&&t.agent&&t.licenseKey&&t.applicationID&&u&&u.body){p.proto="https"===c.split(":")[0]||t.sslForHttp?"https://":"http://",a("mark",["onload",i()]);var e=u.createElement("script");e.src=p.proto+t.agent,u.body.appendChild(e)}}function r(){"complete"===u.readyState&&o()}function o(){a("mark",["domContent",i()])}function i(){return(new Date).getTime()}var a=t("handle"),s=window,u=s.document,d="addEventListener",f="attachEvent",c=(""+location).split("?")[0],p=e.exports={offset:i(),origin:c,features:[]};u[d]?(u[d]("DOMContentLoaded",o,!1),s[d]("load",n,!1)):(u[f]("onreadystatechange",r),s[f]("onload",n)),a("mark",["firstbyte",i()])},{handle:"D5DuLP"}],14:[function(t,e){function n(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,o=n-e||0,i=Array(0>o?0:o);++r<o;)i[r]=t[e+r];return i}e.exports=n},{}],15:[function(t,e){function n(t,e,r,s){function nrWrapper(){try{var n,a=u(arguments),d=this,f=r&&r(a,d)||{}}catch(c){i([c,"",[a,d,s],f])}o(e+"start",[a,d,s],f);try{return n=t.apply(d,a)}catch(p){throw o(e+"err",[a,d,p],f),p}finally{o(e+"end",[a,d,n],f)}}return a(t)?t:(e||(e=""),nrWrapper[n.flag]=!0,nrWrapper)}function r(t,e,r,o){r||(r="");var i,s,u,d="-"===r.charAt(0);for(u=0;u<e.length;u++)s=e[u],i=t[s],a(i)||(t[s]=n(i,d?s+r:r,o,s,t))}function o(t,e,n){try{s.emit(t,e,n)}catch(r){i([r,t,e,n])}}function i(t){try{s.emit("internal-error",t)}catch(e){}}function a(t){return!(t&&"function"==typeof t&&t.apply&&!t[n.flag])}var s=t(1),u=t(2);e.exports=n,n.inPlace=r,n.flag="nr@wrapper"},{1:1,2:14}]},{},["G9z0Bl",2,7]);</script>
+        <meta content="initial-scale=1, width=device-width, user-scalable=no" name="viewport" />
+        <meta name="description" lang="ru" content="Представляем работу фрилансера Денис Корольков на FL.ru (Сайт «под ключ»)." />
+        <meta name="keywords" lang="ru" content="работа, ищу работу, поиск работы, удаленная работа, фри-ланс" />
+                                <meta property="og:title" content="CvetShop" />
+<meta property="og:image" content="https://www.free-lance.ru/images/free-lance_logo.jpg" />
+                        <title>Портфолио фрилансера Денис Корольков [myprof]. Сайт «под ключ» - CvetShop. Фриланс, удаленная работа на FL.ru</title>
+        <script type="text/javascript">
+            var CKEDITOR_BASEPATH = '/scripts/ckedit/';
+            var _TOKEN_KEY = '8656a32ba2ebd1466a997e0ab6e8825c';
+            var _UID = 1894963;
+        </script>
+        <link rel="icon" href="/favicon.ico" type="image/x-icon">
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+            
+                                                                                                    
+                                                   
+                                                                                	                                              
+				
+	                                        
+                                    
+                    
+                        <link type="text/css" href="https://st.fl.ru/wdstatic/0a94b1a4ba20b7a5cd197f33e0ec3ffd_1404745626.css" rel="stylesheet" charset="windows-1251"/>
+<script type="text/javascript" src="https://st.fl.ru/wdstatic/f1c0c8a6f65b73d2a867308dbe35afdb_1404745626.js" charset="windows-1251"></script>
+<script type="text/javascript" src="https://st.fl.ru/wdstatic/c10e6af9fade16684be48dd6d918f72a_1404745626.js" charset="windows-1251"></script>
+        <script type="text/javascript" src="https://st.fl.ru/wdstatic/a4a0f356df7e221e41f92e4c38f82cbb_1404745626.js" charset="windows-1251"></script>
+        
+        <script type="text/javascript">
+           var ___WDCPREFIX = 'https://st.fl.ru';
+           var _NEW_TEMPLATE = true;
+                      window.addEvent('domready', function() {
+               CSRF(_TOKEN_KEY);    
+           });
+                                 var _SHORT_CAROUSEL = true;
+                                      var _G_HELP_ID = 0;
+            var CUSTOM_TARGET = '';
+CUSTOM_TARGET = 'emp;unpro;unverif;m;26-30;user_gender=M;user_geo_country=';
+        </script>
+        
+                        
+        <script type='text/javascript'>
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount','UA-163162-1']);
+        _gaq.push(['_setDomainName', 'fl.ru']);
+        _gaq.push(['_setAllowAnchor', true]);
+        _gaq.push(['_addOrganic', 'images.yandex.ru','text']);
+        _gaq.push(['_addOrganic', 'adresa.yandex.ru','what']);
+        _gaq.push(['_addOrganic', 'adresa.yandex.ru','text']);
+        _gaq.push(['_addOrganic', 'blogs.yandex.ru','text']);
+        _gaq.push(['_addOrganic', 'video.yandex.ru','text']);
+        _gaq.push(['_addOrganic', 'yandex.ru','query']);
+        _gaq.push(['_addOrganic', 'yandex.ru','text']);
+        _gaq.push(['_addOrganic', 'mail.ru','q']);
+        _gaq.push(['_addOrganic', 'go.mail.ru','q']);
+        _gaq.push(['_addOrganic', 'images.google.ru','q']);
+        _gaq.push(['_addOrganic', 'maps.google.ru','q']);
+        _gaq.push(['_addOrganic', 'google.com.ua','q']);
+        _gaq.push(['_addOrganic', 'nova.rambler.ru','query']);
+        _gaq.push(['_addOrganic', 'nova.rambler.ru','words']);
+        _gaq.push(['_addOrganic', 'rambler.ru','words']);
+        _gaq.push(['_addOrganic', 'gogo.ru','q']);
+        _gaq.push(['_addOrganic', 'nigma.ru','s']);
+        _gaq.push(['_addOrganic', 'search.qip.ru','query']);
+        _gaq.push(['_addOrganic', 'webalta.ru','q']);
+        _gaq.push(['_addOrganic', 'sm.aport.ru','r']);
+        _gaq.push(['_addOrganic', 'akavita.by','z']);
+        _gaq.push(['_addOrganic', 'meta.ua','q']);
+        _gaq.push(['_addOrganic', 'search.bigmir.net','z']);
+        _gaq.push(['_addOrganic', 'search.tut.by','query']);
+        _gaq.push(['_addOrganic', 'all.by','query']);
+        _gaq.push(['_addOrganic', 'search.i.ua','q']);
+        _gaq.push(['_addOrganic', 'index.online.ua','q']);
+        _gaq.push(['_addOrganic', 'web20.a.ua','query']);
+        _gaq.push(['_addOrganic', 'search.ukr.net','search_query']);
+        _gaq.push(['_addOrganic', 'search.com.ua','q']);
+        _gaq.push(['_addOrganic', 'search.ua','q']);
+        _gaq.push(['_addOrganic', 'poisk.ru','text']);
+        _gaq.push(['_addOrganic', 'go.km.ru','sq']);
+        _gaq.push(['_addOrganic', 'liveinternet.ru','ask']);
+        _gaq.push(['_addOrganic', 'gde.ru','keywords']);
+        _gaq.push(['_addOrganic', 'affiliates.quintura.com','request']);
+        _gaq.push(['_trackPageview']);
+
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+        </script>
+
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+          ga('create', 'UA-163162-4', 'fl.ru');
+          ga('send', 'pageview');
+        </script>
+
+        <script type='text/javascript'>
+                        _gaq.push(['_setCustomVar', 1, 'age', '1986', 1]);
+                                _gaq.push(['_setCustomVar', 2, 'city_user', 'Москва', 1]);
+                            _gaq.push(['_setCustomVar', 3, 'auth_user', 'authorized', 2]);
+                    </script>
+            <script type='text/javascript'>
+            var googletag = googletag || {};
+            googletag.cmd = googletag.cmd || [];
+            (function() {
+            var gads = document.createElement('script');
+            gads.async = true;
+            gads.type = 'text/javascript';
+            var useSSL = 'https:' == document.location.protocol;
+            gads.src = (useSSL ? 'https:' : 'http:') + 
+            '//www.googletagservices.com/tag/js/gpt.js';
+            var node = document.getElementsByTagName('script')[0];
+            node.parentNode.insertBefore(gads, node);
+            })();
+            </script>
+
+            <script type='text/javascript'>
+            googletag.cmd.push(function() {
+            googletag.pubads().setTargeting("acctype", ["emp"]);
+            var gadsSlotTopBar = googletag.defineSlot('/49966680/FL_TopBar', [1280, 40], 'div-gpt-ad-1397483810125-0').addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.pubads().addEventListener('slotRenderEnded', function(event) { 
+                if (event.slot == gadsSlotTopBar)
+                {
+                    var gadsIframe = document.getElementById('google_ads_iframe_' + event.slot.c + '_0');
+                    gadsIframe.width = '100%';
+                    
+                    var gadsWidthAdjustmentFn = function() {        
+                        var gadsFlashInlineDiv = gadsIframe.contentDocument.getElementById('google_flash_inline_div');
+                        if (gadsFlashInlineDiv)
+                        {
+                            gadsFlashInlineDiv.style.width = '100%';
+                            gadsIframe.contentDocument.getElementById('google_flash_div').style.right = '0px';
+                            gadsIframe.contentDocument.getElementById('google_flash_obj').style.width = '100%';
+                            gadsIframe.contentDocument.getElementById('google_flash_embed').style.width = '100%';
+                        }
+                    };
+                    
+                    var gadsIframeWindow = gadsIframe.contentWindow || gadsIframe.contentDocument.parentWindow;
+                    gadsIframeWindow.onload = gadsWidthAdjustmentFn;
+                    gadsWidthAdjustmentFn();
+                }
+            });
+            googletag.enableServices();
+            });
+            </script>
+            
+    </head>
+        <body  class="b-page u-nopro chrome  ">
+	        <script type="text/javascript">
+var notification_delay = '300000';
+var prj_check_delay = '600000';
+</script>
+<script type="text/javascript">
+// прокрутка вверх при переходе между аками
+window.addEvent('domready', function(){
+	$$('.b-dropdown-concealment-options-switch-clause').getElement('.b-dropdown-concealment-options-clause-link').addEvent('click',function(){window.scrollTo(0,0);})
+});
+</script>
+<div class="b-bar b-bar_fixed">                                    
+    <div class="l-outer">
+
+        <header class="l-header">
+            <div class="l-header-inside">
+
+                <section class="l-header-section l-header-first-section">
+
+                    <span class="b-logo">
+                        <a href="/" class="b-logo-link" title="На главную">FL.ru</a>
+                    </span>
+
+                    <ul class="b-primary-menu">
+                        <li class="b-primary-menu-clause b-primary-menu-services-clause  ">
+                            <a href="/" class="b-primary-menu-clause-link" title="Каталог Типовых услуг фрилансеров">Услуги</a>
+                        </li>
+                        <li class="b-primary-menu-clause b-primary-menu-tasks-clause">
+                            <a href="/projects/" class="b-primary-menu-clause-link" title="Список проектов для фрилансеров">Работа</a>
+                        </li>
+                        <li class="b-primary-menu-clause b-primary-menu-employees-clause">
+                            <a href="/freelancers/" class="b-primary-menu-clause-link" title="Каталог фрилансеров">Фрилансеры</a>
+                        </li>
+                        <li class="b-primary-menu-clause b-primary-menu-competitions-clause">
+                            <a href="/konkurs/" class="b-primary-menu-clause-link" title="Список конкурсов для фрилансеров">Конкурсы</a>
+                        </li>
+                        <li class="b-primary-menu-clause b-primary-menu-communities-clause ">
+                            <a href="/commune/" class="b-primary-menu-clause-link" title="Список сообществ">Сообщества</a>
+                        </li>
+                        <li class="b-primary-menu-clause b-primary-menu-faq-clause">
+                            <a target="_blank" href="https://feedback.fl.ru/?sso_token=8r6Rd93%2Fsn87NU0qqWCcJuzWg3HjPlBFMDO79%2F%2FSRJj1eb4JC47NCmwpfK%2B46We5Y6mbZNMGklsv0cfYf%2BkEydLGGE6%2B19%2FZIT0bLW1x40gnAkINDI63U1zwAQJPaBTp5JuSRafompxgPoLzyDAX5ryGg4%2FBkKqgPuYbNs9GMW6hfXVc%2FySwbgt0zbbpvbEq" class="b-primary-menu-clause-link" title="Помощь">Помощь</a>
+                        </li>
+                        <li class="b-primary-menu-clause b-primary-menu-additional-clause">
+                            <div class="b-dropdown b-primary-menu-dropdown" data-dropdown="true" data-dropdown-descriptor="primary-menu">
+                                <a href="#" class="b-dropdown-opener" data-dropdown-opener="true" title="Навигация">Еще</a>
+                                <div class="b-dropdown-concealment g-hidden" data-dropdown-concealment="true">
+                                    <ul class="b-dropdown-concealment-options">
+                                        <li class="b-dropdown-concealment-options-clause b-dropdown-concealment-options-services-clause  ">
+                                            <a href="/" class="b-dropdown-concealment-options-clause-link" title="Каталог Типовых услуг фрилансеров">Услуги</a>
+                                        </li>
+                                        <li class="b-dropdown-concealment-options-clause b-dropdown-concealment-options-tasks-clause">
+                                            <a href="/projects/" class="b-dropdown-concealment-options-clause-link" title="Список проектов для фрилансеров">Работа</a>
+                                        </li>
+                                        <li class="b-dropdown-concealment-options-clause b-dropdown-concealment-options-employees-clause">
+                                            <a href="/freelancers/" class="b-dropdown-concealment-options-clause-link" title="Каталог фрилансеров">Фрилансеры</a>
+                                        </li>
+                                        <li class="b-dropdown-concealment-options-clause b-dropdown-concealment-options-competitions-clause">
+                                            <a href="/konkurs/" class="b-dropdown-concealment-options-clause-link" title="Список конкурсов для фрилансеров">Конкурсы</a>
+                                        </li>
+                                        <li class="b-dropdown-concealment-options-clause b-dropdown-concealment-options-communities-clause ">
+                                            <a href="/commune/" class="b-dropdown-concealment-options-clause-link" title="Список сообществ">Сообщества</a>
+                                        </li>
+                                        <li class="b-dropdown-concealment-options-clause b-dropdown-concealment-options-faq-clause">
+                                            <a target="_blank" href="https://feedback.fl.ru/?sso_token=8r6Rd93%2Fsn87NU0qqWCcJuzWg3HjPlBFMDO79%2F%2FSRJj1eb4JC47NCmwpfK%2B46We5Y6mbZNMGklsv0cfYf%2BkEydLGGE6%2B19%2FZIT0bLW1x40gnAkINDI63U1zwAQJPaBTp5JuSRafompxgPoLzyDAX5ryGg4%2FBkKqgPuYbNs9GMW6hfXVc%2FySwbgt0zbbpvbEq" class="b-dropdown-concealment-options-clause-link" title="Помощь">Помощь</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+
+                                        <div class="b-dropdown b-identification-dropdown b-identification-dropdown-hide" data-antiuser="true" data-dropdown="true" data-dropdown-descriptor="identification">
+                        <a href="/registration/" class="b-dropdown-opener" data-dropdown-opener="true" title="Перейти в аккаунт работодателя">Перейти в аккаунт работодателя</a>
+                        <div class="b-dropdown-concealment" data-dropdown-concealment="true">
+                            
+                            <form class="b-form b-authorization-form g-cleared" method="post" action="https://www.fl.ru/" onsubmit="return Bar_Ext.antiuserSubmit(this,'Логин');">
+                                
+                                <input type="hidden" name="redirect" value="%2Fusers%2Fmyprof%2Fviewproj.php%3Fprjid%3D3764948" />
+                                
+                                <section class="b-form-section b-form-login-section">
+                                    <div class="b-text-field">
+                                        <input type="text" name="a_login" value="" placeholder="Логин" class="b-text-field-entity"  size="80" />
+                                    </div>
+                                </section>
+
+                                <section class="b-form-section b-form-password-section">
+                                    <div class="b-text-field">
+                                        <input type="password" name="passwd" placeholder="Пароль" class="b-text-field-entity"  size="80" value=""  />
+                                    </div>
+                                </section>
+
+                                <section class="b-form-section b-form-send-section">
+                                    <input type="submit" value="Перейти" class="b-medium-button b-green-medium-button"  />
+                                </section>
+
+                                <section class="b-form-section b-form-registration-section">
+                                    <a data-toggle-action="antiuser" href="javascript:void(0);" class="b-form-cancellation-link" title="Отмена">Отмена</a>
+                                </section>
+                            </form>
+
+                        </div>
+                    </div>
+                    <ul class="b-user-menu" data-antiuser="false">
+                        <li class="b-user-menu-clause b-user-menu-messages-clause ">
+                            <a href="/contacts/" class="b-user-menu-clause-link" title="Переписка с пользователями">
+                                Сообщения
+                                                            </a>
+                        </li>
+                        <li class="b-user-menu-clause b-user-menu-tasks-clause ">
+                            <a href="/users/NikolkaPirogov/setup/projects/" class="b-user-menu-clause-link" title="">
+                                Проекты
+                                                            </a>
+                        </li>
+                                                <li class="b-user-menu-clause b-user-menu-orders-clause  ">
+                            <a href="/users/NikolkaPirogov/tu-orders/" class="b-user-menu-clause-link" title="Список заказов ТУ">
+                                Заказы
+                                                            </a>
+                        </li>
+                                                <li class="b-user-menu-clause b-user-menu-contracts-clause ">
+                            <a href="/bezopasnaya-sdelka/" class="b-user-menu-clause-link" title="Список Безопасных сделок">
+                                Сделки
+                                                            </a>
+                        </li>
+                                                
+                                                    <li class="b-user-menu-clause b-user-menu-pro-clause b-user-menu-completed-pro-clause">
+                                <a href="/payed-emp/" class="b-user-menu-clause-link" title="Купить аккаунт ПРО">PRO</a>
+                            </li>
+                                                <li class="b-user-menu-clause b-user-menu-wallet-clause ">
+                            <a href="/bill/history/?period=3" class="b-user-menu-clause-link" title="У вас на счету 0 рублей">
+                                0 Р                            </a>
+                        </li>
+                        <li class="b-user-menu-clause b-user-menu-additional-clause">
+                            <div class="b-dropdown b-user-menu-dropdown" data-dropdown="true" data-dropdown-descriptor="user-menu">
+
+                                <a href="/users/NikolkaPirogov" class="b-dropdown-opener" data-dropdown-opener="true" title="NikolkaPirogov">
+                                    <span class="b-dropdown-opener-picture">
+                                        <img src="https://st.fl.ru/users/NikolkaPirogov/foto/f_112539dc3d3b11af.jpg" alt="NikolkaPirogov" width="100" height="100" class="b-dropdown-opener-picture-entity" border="0"/>                                    </span>
+                                </a>
+                                <div class="b-dropdown-concealment g-hidden" data-dropdown-concealment="true">
+                                    <ul class="b-dropdown-concealment-options">
+                                        <li class="b-dropdown-concealment-options-clause b-dropdown-concealment-options-profile-clause">
+                                            <a title="Профиль" class="b-dropdown-concealment-options-clause-link" href="/users/NikolkaPirogov">Профиль</a>
+					</li>                                       
+                                        <li class="b-dropdown-concealment-options-clause b-dropdown-concealment-options-messages-clause">
+                                            <a href="/contacts/" class="b-dropdown-concealment-options-clause-link" title="Переписка с пользователями">Сообщения</a>
+                                        </li>
+                                        <li class="b-dropdown-concealment-options-clause b-dropdown-concealment-options-tasks-clause">
+                                            <a href="/users/NikolkaPirogov/setup/projects/" class="b-dropdown-concealment-options-clause-link" title="">Проекты</a>
+                                        </li>
+                                                                                <li class="b-dropdown-concealment-options-clause b-dropdown-concealment-options-orders-clause">
+                                            <a href="/users/NikolkaPirogov/tu-orders/" class="b-dropdown-concealment-options-clause-link" title="Список заказов ТУ">Заказы</a>
+                                        </li>
+                                                                                <li class="b-dropdown-concealment-options-clause b-dropdown-concealment-options-contracts-clause">
+                                            <a href="/bezopasnaya-sdelka/" class="b-dropdown-concealment-options-clause-link" title="Список Безопасных сделок">Сделки</a>
+                                        </li>
+                                        <li class="b-dropdown-concealment-options-clause b-dropdown-concealment-options-digest-clause">
+                                            <a href="/lenta/" class="b-dropdown-concealment-options-clause-link" title="Лента новых работ и сообществ">Лента</a>
+                                        </li>
+                                                                                    <li class="b-dropdown-concealment-options-clause b-dropdown-concealment-options-pro-clause">
+                                                <a href="/payed-emp/" class="b-dropdown-concealment-options-clause-link" title="Купить аккаунт ПРО">PRO-аккаунт</a>
+                                            </li>
+                                                                                <li class="b-dropdown-concealment-options-clause b-dropdown-concealment-options-wallet-clause">
+                                            <a href="/bill/history/?period=3" class="b-dropdown-concealment-options-clause-link" title="0 Р">Счет</a>
+                                        </li>
+                                        <li class="b-dropdown-concealment-options-clause b-dropdown-concealment-options-settings-clause">
+                                            <a href="/users/NikolkaPirogov/setup/" class="b-dropdown-concealment-options-clause-link" title="Настройки аккаунта">Настройки</a>
+                                        </li>
+                                                                                                                            <li class="b-dropdown-concealment-options-clause b-dropdown-concealment-options-switch-clause">
+                                                <a data-toggle-action="antiuser" href="javascript:void(0);" class="b-dropdown-concealment-options-clause-link" title="Перейти в аккаунт фрилансера">Войти фрилансером</a>
+                                            </li>
+                                            <li class="b-dropdown-concealment-options-clause b-dropdown-concealment-options-exit-clause">
+                                                <a href="javascript:void(0);" class="b-dropdown-concealment-options-clause-link" title="Выйти из аккаунта работодателя" onclick="Bar_Ext.logout();">Выйти</a>
+                                            </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+
+                </section>
+            </div>
+        </header>
+
+    </div>
+</div>                <div class="b-page__wrapper">
+            <div class="b-page__inner">
+                <div class="b-page__page b-page__page_padtop_20_r600 b-page__page_padtop_75_r810 b-page__page_padtop_80">
+                                        <div class="b-layout b-layout__page" style="margin-top:0px">
+                                        <div class="body">
+                        <div class="main">
+                                            <a name="top"></a>
+                        
+<script type="text/javascript" charset="UTF-8">
+/* <![CDATA[ */
+try { if (undefined == xajax.config) xajax.config = {}; } catch (e) { xajax = {}; xajax.config = {}; };
+xajax.config.requestURI = "/xajax/banned.server.php";
+xajax.config.statusMessages = false;
+xajax.config.waitCursor = true;
+xajax.config.version = "xajax 0.5 rc1";
+xajax.config.legacy = false;
+xajax.config.defaultMode = "asynchronous";
+xajax.config.defaultMethod = "POST";
+/* ]]> */
+</script>
+<script type="text/javascript" charset="UTF-8">
+var U_TOKEN_KEY = "8656a32ba2ebd1466a997e0ab6e8825c";
+</script>
+<script type="text/javascript" src="/xajax/xajax_js/xajax_core.js?v=241013" charset="UTF-8"></script>
+<script type="text/javascript" charset="UTF-8">
+/* <![CDATA[ */
+window.setTimeout(
+ function() {
+  var scriptExists = false;
+  try { if (xajax.isLoaded) scriptExists = true; }
+  catch (e) {}
+  if (!scriptExists) {
+   alert("Error: the xajax Javascript component could not be included. Perhaps the URL is incorrect?\nURL: /xajax/xajax_js/xajax_core.js");
+  }
+ }, 40000);
+/* ]]> */
+</script>
+
+<script type='text/javascript' charset='UTF-8'>
+/* <![CDATA[ */
+xajax_BlockedThread = function() { return xajax.request( { xjxfun: 'BlockedThread' }, { parameters: arguments } ); };
+xajax_BlockedProject = function() { return xajax.request( { xjxfun: 'BlockedProject' }, { parameters: arguments } ); };
+xajax_BlockedProjectWithComplain = function() { return xajax.request( { xjxfun: 'BlockedProjectWithComplain' }, { parameters: arguments } ); };
+xajax_getAdminActionReasons = function() { return xajax.request( { xjxfun: 'getAdminActionReasons' }, { parameters: arguments } ); };
+xajax_getAdminActionReasonText = function() { return xajax.request( { xjxfun: 'getAdminActionReasonText' }, { parameters: arguments } ); };
+xajax_getAdminActionReasonTextStream = function() { return xajax.request( { xjxfun: 'getAdminActionReasonTextStream' }, { parameters: arguments } ); };
+xajax_getAdminActionReasonTextDel = function() { return xajax.request( { xjxfun: 'getAdminActionReasonTextDel' }, { parameters: arguments } ); };
+xajax_BlockedCommune = function() { return xajax.request( { xjxfun: 'BlockedCommune' }, { parameters: arguments } ); };
+xajax_BlockedCommuneTheme = function() { return xajax.request( { xjxfun: 'BlockedCommuneTheme' }, { parameters: arguments } ); };
+xajax_BlockedFreelanceOffer = function() { return xajax.request( { xjxfun: 'BlockedFreelanceOffer' }, { parameters: arguments } ); };
+xajax_BlockedProjectOffer = function() { return xajax.request( { xjxfun: 'BlockedProjectOffer' }, { parameters: arguments } ); };
+xajax_BlockedPortfolio = function() { return xajax.request( { xjxfun: 'BlockedPortfolio' }, { parameters: arguments } ); };
+xajax_BlockedDialogue = function() { return xajax.request( { xjxfun: 'BlockedDialogue' }, { parameters: arguments } ); };
+xajax_GetWarns = function() { return xajax.request( { xjxfun: 'GetWarns' }, { parameters: arguments } ); };
+xajax_setUserBanForm = function() { return xajax.request( { xjxfun: 'setUserBanForm' }, { parameters: arguments } ); };
+xajax_setDelReasonForm = function() { return xajax.request( { xjxfun: 'setDelReasonForm' }, { parameters: arguments } ); };
+xajax_setDeleted = function() { return xajax.request( { xjxfun: 'setDeleted' }, { parameters: arguments } ); };
+xajax_setUserMassBanForm = function() { return xajax.request( { xjxfun: 'setUserMassBanForm' }, { parameters: arguments } ); };
+xajax_updateUserBan = function() { return xajax.request( { xjxfun: 'updateUserBan' }, { parameters: arguments } ); };
+xajax_setUserWarnForm = function() { return xajax.request( { xjxfun: 'setUserWarnForm' }, { parameters: arguments } ); };
+xajax_setUserWarnFormNew = function() { return xajax.request( { xjxfun: 'setUserWarnFormNew' }, { parameters: arguments } ); };
+xajax_updateUserWarn = function() { return xajax.request( { xjxfun: 'updateUserWarn' }, { parameters: arguments } ); };
+xajax_unBlocked = function() { return xajax.request( { xjxfun: 'unBlocked' }, { parameters: arguments } ); };
+/* ]]> */
+</script>
+          <style type="text/css">.b-icon__ver{ vertical-align:top;}</style>
+
+			<div style="border-bottom: 1px solid #B2B2B2; margin: 0 0 -1px 0; clear:both;">
+				<table style="margin: 0 auto -1px; border-bottom: 1px solid #B2B2B2; width:100%;">
+					<tr>
+						<td align="left" valign="top" style="padding-top: 10px;">
+							<div style="margin: 0 auto; background-color: #fff;">
+								<table width="100%" cellspacing="0" cellpadding="15" border="0">
+									<tr class="qpr">
+										<td bgcolor="#FAFAFA" style="border-top: 1px solid #C6C6C6; border-left: 1px solid #C6C6C6; border-right: 1px solid #C6C6C6; padding:10px">
+											<table width="100%" cellspacing="0" cellpadding="0" border="0">
+												<tr valign="top" class="n_qpr">
+													<td width="70" align="center">
+														<a href="/users/myprof" class="frlname11"><img src="https://st.fl.ru/users/myprof/foto/sm_f_10453846a9021d92.png" alt="myprof" width="50" height="50" class="lpl-avatar" border="0"/></a>
+													</td>
+													<td class="prj-user">
+														<span class="b-icon b-icon__lamp" title='На сайте'></span>&nbsp;<font class="frlname11"><a href="/users/myprof" class="frlname11" title="Денис Корольков">Денис Корольков</a> [<a href="/users/myprof" class="frlname11" title="myprof">myprof</a>]</font> &#160;<a class="b-layout__link" target="_blank" href="/payed/"  title='Платный аккаунт' ><span alt="Платный аккаунт" class="b-icon b-icon__pro b-icon__pro_f"  title='Платный аккаунт' ></span></a>&#160;<a class="b-layout__link" href="/promo/verification" title="Верифицированный пользователь" alt="Верифицированный пользователь" target="_blank"><span class="b-icon b-icon__ver "></span></a><br>
+																												
+													</td>
+												</tr>
+											</table>
+										</td>
+									</tr>
+                                    								</table>
+								<table width="100%" cellspacing="0" cellpadding="15" border="0">
+									<tr class="qpr">
+												<td style="white-space:nowrap;padding:10px 24px 10px 10px; border-left: 1px solid #C6C6C6; background:#fafafa;">
+												  <a href="/users/myprof/viewproj.php?prjid=4395799" title="Используйте Ctrl &lt;&ndash;" class="blue">Предыдущая работа</a>												</td>
+												<td style="text-align:left; padding:10px 10px 10px 20px; background:#fafafa;">
+                                                                                                        	
+                                                        <div style="padding-left:30px">
+                                                        <h1 class="b-layout__txt b-layout__txt_inline b-layout__txt_bold b-layout__txt_fontsize_11">CvetShop</h1> 
+                                                        &nbsp;&nbsp;                                                         <span class="money"></span>
+														                                                     	</div>
+                                                     
+																										
+                                                	<div style="padding-top:12px; padding-left:30px;">
+                                                		Дата добавления: 04.12.12 в 19:41                                                		                                                		<br>
+                                                        Дата обновления: 25.06.14 в 02:52                                                        													</div>
+
+																								
+
+                                                	<div style="padding-top:12px">
+														Дизайн													</div>
+
+												                                                    </td>
+												<td style="text-align:right;white-space:nowrap;padding:10px 10px 10px 24px; border-right: 1px solid #C6C6C6; background:#fafafa;">
+												  <a href="/users/myprof/viewproj.php?prjid=4713475" title="Используйте Ctrl &ndash;&gt;" class="blue">Следующая работа</a>												</td>
+											</tr>
+																													<tr class="qpr">
+										<td id="proj_pict" style="padding:10px; border-left: 1px solid #C6C6C6; border-right: 1px solid #C6C6C6; border-bottom: 1px solid #C6C6C6;" colspan="3">
+										    <a href='/users/myprof/viewproj.php?prjid=4713475'><div  style="text-align:center"><img src="https://st.fl.ru/users/myprof/upload/f_90150be19b5119e2.jpg" alt="CvetShop" title="CvetShop (Сайт «под ключ») - фри-лансер Денис Корольков [myprof]. " width="1000" height="1884" /></div></a>										</td>
+									</tr>
+																											<tr class="qpr">
+									   <td style="padding:10px; border-left: 1px solid #C6C6C6; border-right: 1px solid #C6C6C6; border-bottom: 1px solid #C6C6C6;" colspan="3">
+                                            											<div class="b-free-share"><div class="b-free-share__icons b-free-share__icons_float_right"> 
+						  <span class="b-free-share__txt b-free-share__txt_top_7">Поделиться:</span>
+						  <span id="yashare" class="b-free-share__yashare yashare-auto-init" data-yashareL10n="ru" data-yashareType="none" data-yashareQuickServices="yaru,vkontakte,facebook,twitter,lj,gplus,blogger" data-yashareTitle="CvetShop" data-yashareImage="https://st.fl.ru/users/myprof/upload/sm_f_22750be19b4ec263.jpg" data-yashareLink="https://www.fl.ru/users/myprof/viewproj.php?prjid=3764948"></span><span
+						   class="b-free-share__pinterest"><a href="http://pinterest.com/pin/create/button/?url=https%3A%2F%2Fwww.fl.ru%2Fusers%2Fmyprof%2Fviewproj.php%3Fprjid%3D3764948&description=" class="pin-it-button" count-layout="none" target="_blank"></a></span></div><div class="b-free-share__like b-free-share__like_padleft_10">
+						  <div id="fb-root"></div>
+						  <div class="fb-like" data-href="https%3A%2F%2Fwww.fl.ru%2Fusers%2Fmyprof%2Fviewproj.php%3Fprjid%3D3764948" data-send="false" data-layout="button_count" data-width="150" data-show-faces="false"></div><script type="text/javascript" src="//yandex.st/share/share.js" charset="utf-8"></script><script type="text/javascript">
+                        (function(d, s, id) {
+                        var js, fjs = d.getElementsByTagName(s)[0];
+                        if (d.getElementById(id)) return;
+                        js = d.createElement(s); js.id = id;
+                        js.src = "//connect.facebook.net/ru_RU/all.js#xfbml=1";
+                        fjs.parentNode.insertBefore(js, fjs);
+                        }(document, 'script', 'facebook-jssdk'));
+                </script></div></div>
+									   </td>
+									</tr>
+								</table>
+															</div>
+							<br />
+						</td>
+					</tr>
+				</table>
+			</div>
+<script type="text/javascript">
+window.addEvent('domready', function() {
+    document.addEvent('keydown', function(e){
+        var a={37:4395799,39:4713475};
+        if (e.control && a[e.code]) {
+            location.replace(location.pathname + '?prjid=' + a[e.code]);
+        }
+
+    });
+});
+
+</script>			                                            </div>
+                    </div>
+                                        </div>
+                    <div class="i-footer">
+    <div class="b-footer">
+        <div class="b-footer__top" >
+            <div class="b-footer__col b-footer__col_copy">
+                <h4 class="b-footer__h4">© Free-lance.ru | FL.ru | 2005–2014</h4>
+                <div class="b-layout__txt b-layout__txt_margtop_-5 b-layout__txt_padbot_10">
+                    <a class="b-layout__link" href="/"><img class="b-layout__pic b-layout__pic_valign_middle" src="/images/footer/fl.png" width="32" height="32"></a> &#160;
+                    <a class="b-layout__link" href="http://www.dizkon.ru/" target="_blank"><img class="b-layout__pic b-layout__pic_valign_middle" src="/images/footer/dizkon.png" width="88" height="21"></a>
+                </div>
+                                <div class="b-footer__rambler"> 
+                    <!-- begin of Top100 logo --> 
+                    <p class="b-footer__txt">
+                        <script type="text/javascript">document.write('Участник <a class="b-footer__link" href="http://top100.rambler.ru/home?id=1367737" target="_blank">Rambler\'s Top100</a>');</script>
+                    </p>
+                    <!-- begin of Top100 logo --> 
+                    <!-- end of Top100 logo --> 
+                </div>
+                <div class="b-footer__18">18+</div>
+                
+                <!-- tns-counter.ru --> 
+                <script type="text/javascript">
+                        var img = new Image();
+                        img.src = '//www.tns-counter.ru/V13a***R>' + document.referrer.replace(/\*/g,'%2a') + '*hh_ru/ru/CP1251/tmsec=hh_free-lance/';
+                </script>
+                <noscript>
+                <div><img class="b-footer__counter" src="//www.tns-counter.ru/V13a****hh_ru/ru/CP1251/tmsec=hh_free-lance/"  alt="" /></div>
+                </noscript>
+                <!--/ tns-counter.ru --> 
+
+                <!-- begin of Top100 code --> 
+                <a class="b-footer__link" style="position:absolute; left:-9999px;" href="http://top100.rambler.ru/top100/"><img class="b-footer__counter" src="//counter.rambler.ru/top100.cnt?1367737" alt="Rambler's Top100"   /></a> 
+                <!-- end of Top100 code --> 
+
+                
+                <!-- Yandex.Metrika counter -->
+                <script type="text/javascript">
+                var yaParams = {/*Здесь параметры визита электронной торговли*/};
+                </script>
+
+                <script type="text/javascript">
+                (function (d, w, c) {
+                    (w[c] = w[c] || []).push(function() {
+                        try {
+                            w.yaCounter6051055 = new Ya.Metrika({id:6051055,
+                                    webvisor:true,
+                                    clickmap:true,
+                                    trackLinks:true,
+                                    accurateTrackBounce:true,params:window.yaParams||{ }});
+                        } catch(e) { }
+                    });
+
+                    var n = d.getElementsByTagName("script")[0],
+                        s = d.createElement("script"),
+                        f = function () { n.parentNode.insertBefore(s, n); };
+                    s.type = "text/javascript";
+                    s.async = true;
+                    s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+                    if (w.opera == "[object Opera]") {
+                        d.addEventListener("DOMContentLoaded", f, false);
+                    } else { f(); }
+                })(document, window, "yandex_metrika_callbacks");
+                </script>
+                <noscript><div><img src="//mc.yandex.ru/watch/6051055" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+                <!-- /Yandex.Metrika counter -->
+            </div>
+            
+                            <div class="b-footer__col b-footer__col_user" style="width:11%">
+                                    	                    <h4 class="b-footer__h4"><a class="b-footer__link" href="/users/NikolkaPirogov"><!--  [-->NikolkaPirogov<!--]--></a></h4>
+	                    <ul class="b-footer__list">
+                            <li class="b-footer__item"><a class="b-footer__link" href="/users/NikolkaPirogov">Моя страница</a></li>
+	                        <li class="b-footer__item"><a class="b-footer__link" href="/contacts/">Сообщения</a></li>
+	                        <li class="b-footer__item"><a class="b-footer__link" href="/bill/">Мои услуги</a></li>
+	                        <li class="b-footer__item"><a class="b-footer__link" href="/users/NikolkaPirogov/setup/projects/">Мои проекты и<br />конкурсы</a></li>
+	                        	                        
+                            <li class="b-footer__item"><a class="b-footer__link" href="/users/NikolkaPirogov/setup/">Мои настройки</a></li>
+	                        <li class="b-footer__item"><a class="b-footer__link logoutBtn" href="javascript:logout()">Выход</a></li>
+	                    </ul>
+	                
+                            </div>
+            
+                                    <div class="b-footer__col b-footer__col_project">                        
+    				    <h4 class="b-footer__h4">Найти исполнителя</h4>    				    
+                        <ul class="b-footer__list">
+                                <li class="b-footer__item"><a class="b-footer__link" href="/public/?step=1&kind=1" target="_blank">Опубликовать проект<br /> или конкурс</a></li>
+                                <li class="b-footer__item"><a class="b-footer__link" href="/masssending/" target="_blank">Разослать проект по каталогу</a></li>
+                                <li class="b-footer__item"><a class="b-footer__link" href="/bezopasnaya-sdelka/" target="_blank">«Безопасная Сделка»</a></li>
+                                <li class="b-footer__item"><a class="b-footer__link" href="/freelancers/" target="_blank">Каталог исполнителей</a></li>
+                        </ul>
+                    </div>
+                            
+                        <div class="b-footer__col b-footer__col_project">
+                                    <h4 class="b-footer__h4"><a class="b-footer__link" href="/about/" target="_blank">О проекте</a></h4>
+                                <ul class="b-footer__list">
+                    <li class="b-footer__item"><a class="b-footer__link" href="https://st.fl.ru/about/documents/agreement_site.pdf" target="_blank">Пользовательское соглашение</a></li>
+                    <li class="b-footer__item"><a class="b-footer__link" href="https://st.fl.ru/about/documents/appendix_2_regulations.pdf" target="_blank">Правила сайта</a></li>
+                    <li class="b-footer__item"><a class="b-footer__link" href="https://st.fl.ru/about/documents/appendix_1_price.pdf" target="_blank">Перечень платных услуг</a></li>
+                    <li class="b-footer__item"><a class="b-footer__link" href="https://st.fl.ru/about/documents/appendix_4_service.pdf" target="_blank">Перечень бесплатных услуг</a></li>
+                    <li class="b-footer__item"><a class="b-footer__link" href="https://st.fl.ru/about/documents/appendix_3_software_requirements.pdf" target="_blank">Требования к ПО</a></li>
+                    <li class="b-footer__item"><a class="b-footer__link" href="/about/team/" target="_blank">Команда</a></li>
+                    <li class="b-footer__item"><a class="b-footer__link" href="/commune/drugoe/5100/free-lanceru/" target="_blank">Корпоративный блог</a></li>
+                    <li class="b-footer__item"><a class="b-footer__link" href="/commune/klanyi/1008/nash-nekorporativnyiy-blog/" target="_blank">Некорпоративный блог</a></li>
+                    <li class="b-footer__item"><a class="b-footer__link" href="/press/contacts/">Контакты</a></li>
+                                                                            </ul>
+            </div>
+            
+            <div class="b-footer__col b-footer__col_help">
+				<h4 class="b-footer__h4">
+                    <a class="b-footer__link" href="https://feedback.fl.ru/?sso_token=8r6Rd93%2Fsn87NU0qqWCcJuzWg3HjPlBFMDO79%2F%2FSRJj1eb4JC47NCmwpfK%2B46We5Y6mbZNMGklsv0cfYf%2BkEydLGGE6%2B19%2FZIT0bLW1x40gnAkINDI63U1zwAQJPaBTp5JuSRafompxgPoLzyDAX5ryGg4%2FBkKqgPuYbNs9GMW6hfXVc%2FySwbgt0zbbpvbEq" target="_blank">Помощь</a>
+                </h4>
+
+                <ul class="b-footer__list">
+					<li class="b-footer__item">
+                        <a class="b-footer__link" onmouseover="UE.Popin.preload();" href="https://feedback.fl.ru/" onclick="UE.Popin.show(); return false;">Написать нам в службу поддержки</a>                        
+                    </li>					
+  					<li class="b-footer__item">
+                        <a class="b-footer__link" href="/search/">Поиск по сайту</a>
+                    </li>
+                </ul>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+<script type='text/javascript'>
+
+var _ues = {
+host:'fl.userecho.com',
+forum:'27456',
+lang:'ru',
+tab_show:false,
+};
+
+(function() {
+    var _ue = document.createElement('script'); _ue.type = 'text/javascript'; _ue.async = true;
+    _ue.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'cdn.userecho.com/js/widget-1.4.gz.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(_ue, s);
+  })();
+
+</script>
+
+<!-- 0  -->
+<!--  -->
+<!--  0.11044  -->
+                </div><!--b-page__page-->
+                            </div>
+        </div>
+                        
+        		
+	
+        <!-- Yandex.Metrika counter -->
+        <script type="text/javascript">
+        var yaParams = {/*Здесь параметры визита электронной торговли*/};
+        </script>
+
+        <script type="text/javascript">
+        (function (d, w, c) {
+            (w[c] = w[c] || []).push(function() {
+                try {
+                    w.yaCounter6051055 = new Ya.Metrika({id:6051055,
+                            webvisor:true,
+                            clickmap:true,
+                            trackLinks:true,
+                            accurateTrackBounce:true,params:window.yaParams||{ }});
+                } catch(e) { }
+            });
+
+            var n = d.getElementsByTagName("script")[0],
+                s = d.createElement("script"),
+                f = function () { n.parentNode.insertBefore(s, n); };
+            s.type = "text/javascript";
+            s.async = true;
+            s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+            if (w.opera == "[object Opera]") {
+                d.addEventListener("DOMContentLoaded", f, false);
+            } else { f(); }
+        })(document, window, "yandex_metrika_callbacks");
+
+        function yaCounter6051055reachGoal(p) {
+            try {
+                yaCounter6051055.reachGoal(p);
+            } catch(e) { }
+
+        }
+        </script>
+        <noscript><div><img src="//mc.yandex.ru/watch/6051055" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+        <!-- /Yandex.Metrika counter -->
+    <script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"beacon-2.newrelic.com","licenseKey":"52195390c3","applicationID":"2472980","transactionName":"ZQEHYERQV0sEUEcIXVxLMEZfHkxLAEEcF1tXExVGWVsXSA1D","queueTime":0,"applicationTime":114,"ttGuid":"","agentToken":"","userAttributes":"","errorBeacon":"bam.nr-data.net","agent":"js-agent.newrelic.com\/nr-411.min.js"}</script></body>
+</html>

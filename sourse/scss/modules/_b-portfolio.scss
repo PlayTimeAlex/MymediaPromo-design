@@ -1,0 +1,50 @@
+.b-portfolio{
+    &__title{
+        display: inline-block;
+        vertical-align: middle;
+    }
+    &__header{
+        padding-bottom: em(62);
+    }
+    &__allworks{
+        display: inline-block;
+        $font-size: 12;
+        font-size: em($font-size);
+        color: #7d7d7d;
+        border-radius: 7px;
+        background-color: rgb(255, 255, 255);
+    }
+    &__item{
+        box-sizing: border-box;
+        margin-left: 1.5%;
+        width: 18.8%;
+        float: left;
+        padding-bottom: em(50);
+        &:first-child{
+            margin-left: 0;
+        }
+    }
+    &__link{
+        $font-size: 13;
+        font-size: em($font-size);
+        display: block;
+        cursor: pointer;
+        text-decoration: none;
+        text-align: center;
+        img{
+            display: block;
+            width: 100%;
+            margin-bottom: em(13, $font-size);
+        }
+        .title{
+            display: block;
+            color: #212121;
+            padding-bottom: em(5, $font-size);
+            font-weight: bold;
+        }
+        .year{
+            display: block;
+            color: #8a8a8a;
+        }
+    }
+}

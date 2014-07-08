@@ -1,0 +1,12 @@
+.b-steps{
+    padding-bottom: em(88);
+    img{
+        display: block;
+        max-width: 100%;
+        margin: em(50) auto em(48);
+    }
+    
+    &__request{
+        text-align: center;
+    }
+}

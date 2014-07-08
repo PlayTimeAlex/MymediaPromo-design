@@ -1,0 +1,94 @@
+.b-lworks{
+    padding-bottom: em(18);
+    &__header{
+        padding-bottom: em(93);
+        position: relative;
+    }
+    &__title{
+        $font-size: 14;
+        font-size: em(14);
+        color: #ffffff;
+        text-transform: uppercase;
+        text-align: center;
+        background-color: #7bc1e3;
+        border-bottom:3px solid #d9d9d9;
+        border-radius:7px;
+        position: relative;
+        overflow: hidden;
+        font-weight: bold;
+        padding: em(10, $font-size) 0;
+        &:after{
+            content:"";
+            display: block;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: #5a9ec1;
+        }
+    }
+    &__text{
+        width: 222px;
+        height: 72px;
+        box-sizing: border-box;
+        padding-left: 60px;
+        padding-top: 18px;
+        background:url(../images/orangequote.png) no-repeat 0 0;
+        background-size: 100% 100%;
+        position: absolute;
+        right: 0;
+        bottom: 15px;
+        color: #363636;
+        display: block;
+        font-size: em(12);
+        text-align: center;
+    }
+    &__item{
+        padding-bottom: em(20);
+    }
+    &__prev{
+        float: left;
+        padding-right: em(9);
+        width: em(155);
+        img{
+            display: block;
+            max-width: 100%;
+        }
+    }
+    &__content{
+        overflow: hidden;
+        p{
+            color: #8a8a8a;
+            font-size: em(13);
+        }
+    }
+    &__rm{
+        padding-top: em(10);
+        a{
+            display: inline-block;
+            background: #ccf3fa;
+            color: #2773f4;
+            $font-size: 13;
+            font-size: em($font-size);
+            border-radius: 2px;
+            text-decoration: none;
+            padding: em(5, $font-size) em(14, $font-size) em(5, $font-size) em(10, $font-size);
+            text-decoration: none;
+            &:hover {
+                background: #9aedfc;
+            }
+        }
+    }
+    &__item-title{
+        $font-size: 15;
+        font-size: em($font-size);
+        color: #212121;
+        font-weight: bold;
+        padding-bottom: em(8, $font-size);
+        padding-top: em(16, $font-size);
+        .year{
+            color: #8a8a8a;
+        }
+    }
+}

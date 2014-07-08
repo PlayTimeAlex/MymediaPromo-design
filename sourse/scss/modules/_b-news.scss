@@ -1,0 +1,86 @@
+.b-news{
+    overflow: hidden;
+    padding-bottom: em(20);
+    &__title{
+        padding-bottom: em(12);
+    }
+    &__prev{
+        width: em(160);
+        padding-right: em(18);
+        float: left;
+        padding-top: em(22);
+        img{
+            display: block;
+            border-radius: 50%;
+            width: 100%;
+        }
+    }
+    &__content{
+        overflow: hidden;
+        p{
+            $font-size:13;
+            font-size: em($font-size);
+            line-height: 19/$font-size;
+            color: #4b4b4b;
+        }
+    }
+    &__time{
+        $font-size: 11;
+        font-size: em($font-size);
+        padding: 0 0 em(3, $font-size);
+        color: #afafaf;
+        display: block;
+    }
+    &__item-title{
+        font-family: $secondary__font;
+        font-weight: 900;
+        $font-size: 24;
+        font-size: em($font-size);
+        color: #323232;
+        line-height: 1.1;
+        padding: 0 0 em(10, $font-size);
+    }
+    &__detalis{
+        padding-bottom: em(21);
+    }
+    .category{
+        background-color: rgba(237, 17, 74, .07);
+        color: #ff71a6;
+        $font-size: 13;
+        font-size: em($font-size);
+        border-radius: 2px;
+        display: inline-block;
+        padding: em(6, $font-size) em(10,$font-size);
+        margin-right: em(16, $font-size);
+    }
+    .views, .comments{
+        display: inline-block;
+        $font-size: 11;
+        font-size: em($font-size);
+        color: #afafaf;
+        margin-right: em(16, $font-size);
+        padding: em(9, $font-size) 0 0 em(22,$font-size);
+        position: relative;
+        &:before{
+            content:"";
+            display: block;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            margin-top: -2px;
+            height: 14px;
+            width: 16px;
+            background: url(../images/sprite.png) -33px -0px no-repeat;
+        }
+    }
+    .comments{
+        &:before{
+            height: 16px;
+            background-position: -49px 0;
+            margin-top: -3px;
+        }
+    }
+    &__rm{
+        margin-top: em(17);
+    }
+}

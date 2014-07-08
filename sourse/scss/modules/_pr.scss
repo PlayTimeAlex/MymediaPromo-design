@@ -1,0 +1,100 @@
+.pr{
+    &-btitle{
+        $font-size: 24;
+        font-size: em(24);
+        font-family: $secondary__font;
+        text-transform: uppercase;
+        font-weight: 900;
+        color: #323232;
+        &:before, &:after{
+            content:"•";
+            display: inline-block;
+            vertical-align: middle;
+            padding: 0 em(8, $font-size);
+            line-height: 1;
+            margin-top: em(-5, $font-size);
+        }
+    }
+    &-button{
+        $font-size: 14;
+        font-size: em($font-size);
+        color: #fff;
+        background: #2773f4;
+        border-radius: 7px;
+        display: inline-block;
+        text-decoration: none;
+        line-height: 1.5;
+        padding: 10px em(25, $font-size);
+        cursor: pointer;
+        text-transform: uppercase;
+        border:0;
+        &:hover{
+            background-color:#194a9d;
+        }
+        &_gray{
+            background-color:#ededed;
+            color: #6f6f6f;
+            &:hover{
+                background-color: #d7d5d5;
+            }
+        }
+        &_green{
+            background-color:#85d82b;
+            &:hover{
+                background-color: #68a525;
+            }
+        }
+    }
+    &-tel{
+        $font-size: 20;
+        font-size: em($font-size);
+        color: #323232;
+        font-family: $secondary__font;
+        font-weight: 900;
+        .code{
+            color: #c8c8c8;
+            font-family: 700;
+        }
+    }
+    &-smvk, &-smfb, &-smtw, &-smfl, &-smunk{
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        background: url(../images/sprite.png) no-repeat -163px 0;
+        vertical-align: middle;
+    }
+    &-smfb{
+        background-position: -179px 0;
+    }
+    &-smtw{
+        background-position: -195px 0;
+    }
+    &-smfl{
+        background-position: 0 0;
+    }
+    &-smunk{
+        background-position: -16px 0;
+    }
+    &-right{
+        text-align: right;
+    }
+    &-ybutton{
+        display: inline-block;
+        background: #ffc001 url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAAAsCAYAAAA+RMe5AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDIxIDc5LjE1NTc3MiwgMjAxNC8wMS8xMy0xOTo0NDowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTQgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjJEQTZBNUFFMDYwRDExRTRCQTg2RDlCQUYzMkNGRjQzIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjJEQTZBNUFGMDYwRDExRTRCQTg2RDlCQUYzMkNGRjQzIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6MkRBNkE1QUMwNjBEMTFFNEJBODZEOUJBRjMyQ0ZGNDMiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6MkRBNkE1QUQwNjBEMTFFNEJBODZEOUJBRjMyQ0ZGNDMiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz52ZPnLAAAIIUlEQVR42uxd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) no-repeat center center;
+        background-size: 100% 100%;
+        text-shadow: 1px 1px 0px rgba(1, 1, 1, 0.176);
+        $font-size: 14;
+        font-size:em($font-size);
+        color: #fff;
+        text-transform: uppercase;
+        line-height: 1.5;
+        border: 0;
+        border-radius: 7px;
+        cursor: pointer;
+        padding: em(11, $font-size) em(29, $font-size);
+        font-weight: bold;
+        &:hover{
+            background-color: #dca602;
+        }
+    }
+}

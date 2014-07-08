@@ -1,0 +1,11 @@
+.b-created{
+    display: block;
+    background: url(../images/mmp-logo.png) 0 center no-repeat;
+    $font-size: 13;
+    font-size: em($font-size);
+    line-height: 18/$font-size;
+    padding-left: em(70, $font-size);
+    background-size: em(50, $font-size) auto;
+    text-decoration: none;
+    color: #616161;
+}

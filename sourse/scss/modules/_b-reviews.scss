@@ -1,0 +1,34 @@
+.b-reviews{
+    padding-bottom: em(30);
+    &__title{
+        padding-bottom: em(12);   
+    }
+    &__content{
+        overflow: hidden;
+        padding-top: em(2);
+        p{
+            $font-size: 13;
+            font-size: em($font-size);
+            color: #8a8a8a;
+            line-height: 18/$font-size;
+        }
+    }
+    &__item-title{
+        $font-size: 15;
+        color: #212121;
+        font-size: em($font-size);
+        padding-bottom: em(10, $font-size);
+    }
+    &__rm{
+        margin-top: 22px;   
+    }
+    &__photo{
+        width: 54px;
+        float: left;
+        padding: 0 20px 0 0;
+        img{
+            display: block;
+            width: 100%;
+        }
+    }
+}
